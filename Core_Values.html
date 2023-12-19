@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Core_Values.css">
+    <title>Mission and Core Values - John Bitar and Co. Ltd.</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>John Bitar</h1>
+        </div>
+        <nav>
+            <div class="menu">&#9776; Menu</div>
+            <ul>
+                <li><a href="Jcm_Home.html">Home</a></li>
+                <li>
+                    <a href="#">About Us</a>
+                    <ul>
+                        <li><a href="History.HTML">History</a></li>
+                        <li><a href="Core_Values.html">Core Values</a></li>
+                        <li><a href="Social_Resp.html">Social Responsibility</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Products</a>
+                    <ul>
+                        <li><a href="Lumber.html">Lumber</a></li>
+                        <li><a href="#">Slice Veneer</a></li>
+                        <li><a href="#">Rotary Veneer</a></li>
+                        <li><a href="#">Plywood</a></li>
+                        <li><a href="#">Moulding Products</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Sustainability</a>
+                    <ul>
+                        <li><a href="#">Sustainable Timber Sourcing</a></li>
+                        <li><a href="#">Certification & Compliance</a></li>
+                        <li><a href="#">Sustainable Practices</a></li>
+                        <li><a href="#">Partnerships & Collaborations</a></li>
+                    </ul>
+                </li>
+                <li><a href="Awards.html">Awards</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="mission">
+        <div class="mission-content">
+            <h1>Our Mission</h1>
+            <p>The core mission of our company is to maximize the utilization of all available species within 
+                Timber Contract Areas, encompassing both forest and off-reserve domains. We are dedicated 
+                to prioritizing the promotion of lesser-used species, emphasizing quality over quantity, and 
+                adding substantial value to our products to enhance returns, contributing significantly to vital 
+                foreign exchange earnings.</p>
+        </div>
+    </section>
+
+    <section id="core-values">
+        <div class="core-values-content">
+            <h1>Our Core Values</h1>
+            <ul>
+                <li>Contribution towards Afforestation </li>
+                <li>Reforestation in degraded forest areas </li>
+                <li>Commitment to Corporate Social Responsibility </li>
+                <li>In addition, John Bitar value behaviours that support its core values and which 
+                    have been embedded in the company management system namely Integrity, 
+                    Innovation, Teamwork, and Ethics  </li>
+            </ul>
+            <!-- Add more core values as needed -->
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 John Bitar and Co. Ltd. | Designed by Your Company</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            var navigation = document.querySelector('.navigation');
+            navigation.classList.toggle('show');
+            menu.innerHTML = (navigation.classList.contains('show')) ? '✕' : '☰';
+        }
+    </script>
+
+</body>
+</html>

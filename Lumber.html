@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Lumber.css">
+    <title>Lumber Products - John Bitar and Co. Ltd.</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>John Bitar</h1>
+        </div>
+        <nav>
+            <div class="menu">&#9776; Menu</div>
+            <ul>
+                <li><a href="Jcm_Home.html">Home</a></li>
+                <li>
+                    <a href="#">About Us</a>
+                    <ul>
+                        <li><a href="History.HTML">History</a></li>
+                        <li><a href="Core_Values.html">Core Values</a></li>
+                        <li><a href="Social_Resp.html">Social Responsibility</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Products</a>
+                    <ul>
+                        <li><a href="Lumber.html">Lumber</a></li>
+                        <li><a href="Slice_Veneer.html">Slice Veneer</a></li>
+                        <li><a href="#">Rotary Veneer</a></li>
+                        <li><a href="#">Plywood</a></li>
+                        <li><a href="#">Moulding Products</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="Sus.html">Sustainability & Certification</a>
+                </li>
+                <li><a href="Awards.html">Awards</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <section id="lumber-products" class="product-section">
+        <!-- <div class="department-image">
+            <img src="images/sawmill.jpg" alt="Department Image">
+        </div> this one adds a cover image at the top of the page-->
+        <div class="product-content">
+            <h1>Explore Our Lumber Products</h1>
+            <p>Discover high-quality lumber products crafted for excellence. Our range of premium lumber is perfect for various applications, ensuring durability and performance in every project.</p>
+
+            <div class="product-card">
+                <img src="images/blank.jpg" alt="Premium Pine Lumber">
+                <div class="product-info">
+                    <h2>Premium Ceiba Lumber</h2>
+                    <p>Perfect for construction, furniture, and woodworking projects.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/blank.jpg" alt="Oak Hardwood Lumber">
+                <div class="product-info">
+                    <h2>Dahoma Lumber</h2>
+                    <p>Ideal for flooring, cabinetry, and applications requiring strength.</p>
+                   <!-- <p class="price">$35.99 per board foot</p> -->
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="images/blank.jpg" alt="Cedar Dimension Lumber">
+                <div class="product-info">
+                    <h2>Ofram Lumber</h2>
+                    <p>Great for outdoor projects, decking, and fencing.</p>
+                </div>
+            </div>
+
+
+                <div class="product-card">
+                <img src="images/blank.jpg" alt="Cedar Dimension Lumber">
+                <div class="product-info">
+                    <h2>Wawa Lumber</h2>
+                    <p>Great for fencing and flooring.</p>
+                </div>
+            </div>
+
+            <!-- Add more lumber products as needed -->
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 John Bitar and Co. Ltd. | Designed by Your Company</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            var navigation = document.querySelector('.navigation');
+            navigation.classList.toggle('show');
+            menu.innerHTML = (navigation.classList.contains('show')) ? '✕' : '☰';
+        }
+    </script>
+
+</body>
+</html>
