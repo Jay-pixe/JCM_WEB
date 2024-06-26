@@ -1,115 +1,106 @@
-document.querySelector('.menu').addEventListener('click', function() {
-    document.querySelector('nav ul').classList.toggle('show');
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdowns = document.querySelectorAll('nav ul li');
+  let currentOpenDropdown = null;
+  let hideTimeout;
+
+  dropdowns.forEach(dropdown => {
+    const submenu = dropdown.querySelector('ul');
+
+    dropdown.addEventListener('mouseover', function() {
+      if (currentOpenDropdown && currentOpenDropdown !== submenu) {
+        clearTimeout(hideTimeout);
+        currentOpenDropdown.style.display = 'none';
+      }
+
+      if (submenu) {
+        clearTimeout(hideTimeout);
+        submenu.style.display = 'block';
+        currentOpenDropdown = submenu;
+      }
+    });
+
+    dropdown.addEventListener('mouseleave', function() {
+      if (submenu) {
+        hideTimeout = setTimeout(() => {
+          submenu.style.display = 'none';
+          currentOpenDropdown = null;
+        }, 300); // Adjust the delay as needed
+      }
+    });
+
+    if (submenu) {
+      submenu.addEventListener('mouseover', function() {
+        clearTimeout(hideTimeout);
+      });
+
+      submenu.addEventListener('mouseleave', function() {
+        hideTimeout = setTimeout(() => {
+          submenu.style.display = 'none';
+          currentOpenDropdown = null;
+        }, 300); // Adjust the delay as needed
+      });
+    }
+  });
 });
 
+// JavaScript functionality (if any) can be added here
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav ul');
 
-///this start the slide share
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
 
-// script.js
+const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
-// script.js
+dropdownToggles.forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    toggle.nextElementSibling.classList.toggle('active');
+  });
+});
 
+// Above ends the header
+
+// Slide share functionality
 let slideIndex = 0;
 let slideInterval;
 
-function showSlides() {
-    const slides = document.getElementsByClassName("mySlides");
-    const dots = document.getElementsByClassName("dot");
+const showSlides = (n) => {
+  const slides = document.querySelectorAll('.mySlides');
+  if (n >= slides.length) { slideIndex = 0; }
+  if (n < 0) { slideIndex = slides.length - 1; }
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        dots[i].classList.remove("active");
-    }
+  slides.forEach((slide) => {
+    slide.classList.remove('fade-in');
+    slide.style.display = 'none';
+  });
 
-    slideIndex++;
+  slides[slideIndex].style.display = 'block';
+  setTimeout(() => {
+    slides[slideIndex].classList.add('fade-in');
+  }, 20);
+};
 
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
-    }
+const plusSlides = (n) => {
+  clearInterval(slideInterval);
+  showSlides(slideIndex += n);
+  startSlideShow();
+};
 
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].classList.add("active");
-}
+const startSlideShow = () => {
+  slideInterval = setInterval(() => {
+    showSlides(++slideIndex);
+  }, 10000); // Change image every 10 seconds
+};
 
-function currentSlide(n) {
-    clearInterval(slideInterval);
-    slideIndex = n - 1;
-    showSlides();
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    showSlides();
-
-    const radioButtons = document.querySelectorAll('.dot');
-    radioButtons.forEach((radioButton, index) => {
-        radioButton.addEventListener('click', () => currentSlide(index + 1));
-    });
-
-    slideInterval = setInterval(showSlides, 5000);
+// Initial setup
+document.addEventListener('DOMContentLoaded', () => {
+  showSlides(slideIndex);
+  startSlideShow();
 });
 
-
-//About Us
-document.addEventListener("DOMContentLoaded", function () {
-    window.addEventListener("scroll", function () {
-        var leftContent = document.querySelector(".left-content");
-        var rightContent = document.querySelector(".right-content");
-        var section = document.querySelector(".section");
-
-        var sectionPosition = section.getBoundingClientRect();
-        var windowHeight = window.innerHeight;
-
-        // Adjust the trigger point as needed
-        var triggerPoint = windowHeight * 0.6;
-
-        if (sectionPosition.top < triggerPoint && sectionPosition.bottom >= triggerPoint) {
-            leftContent.style.transform = "translateX(0)";
-            leftContent.style.opacity = 1;
-
-            rightContent.style.transform = "translateX(0)";
-            rightContent.style.opacity = 1;
-        } else {
-            leftContent.style.transform = "translateX(-100%)";
-            leftContent.style.opacity = 0;
-
-            rightContent.style.transform = "translateX(100%)";
-            rightContent.style.opacity = 0;
-        }
-    });
-});
-
-///why choose us
-
-function toggleMenu() {
-    var menu = document.getElementById('menu');
-    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-}
-
-///explore our products
-function toggleMenu() {
-    var menu = document.getElementById('menu');
-    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-}
-
+// Explore our products
 function scrollToProducts() {
-    var productsSection = document.getElementById('products');
-    productsSection.scrollIntoView({ behavior: 'smooth' });
+  var productsSection = document.getElementById('products');
+  productsSection.scrollIntoView({ behavior: 'smooth' });
 }
-
-
-//Contact us
-
-function submitForm(event) {
-    event.preventDefault();
-
-    // You can add your form submission logic here
-    // For demonstration purposes, let's display an alert
-    alert("Form submitted successfully!");
-}
-
-
-//product page the actual page named products
-// You can add interactive features here
-document.getElementById('buy-button').addEventListener('click', function() {
-    alert('Product added to cart!'); // You can replace this with actual cart functionality
-});
